@@ -1,0 +1,5 @@
+description: This scenario is used to navigate to SAC Story if he says yes.
+ 
+target:
+  type: function
+  name: SAC_Story

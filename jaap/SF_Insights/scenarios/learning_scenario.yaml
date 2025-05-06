@@ -1,0 +1,5 @@
+description: This scinario helps user to get learning hours data widget
+ 
+target:
+  type: function
+  name: learning

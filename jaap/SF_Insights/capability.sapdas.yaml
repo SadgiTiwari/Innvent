@@ -1,0 +1,14 @@
+schema_version: 3.7.0
+
+metadata:
+  namespace: namespace
+  name: SF_Insights
+  version: 1.1.0
+  display_name: SF_Insights
+  description: This capability handles Insights from SAC
+
+system_aliases:
+  SF:
+    destination: INSIGHTS_DEMO
+  SAC:
+    destination: SAC

@@ -1,0 +1,31 @@
+action_groups:
+- actions:    
+      - type: message
+        message:
+          type: card
+          content:
+            title: View Your SAC Story
+            subtitle: " "
+            imageUrl: 'sap-icon://action'
+            imageStyle: avatar
+            sections:
+                - attributes:
+                  - label: ""
+                    value: >-
+                      Access here to open the [SAC Story](https://basic-trial-sac.cfapps.ap11.hana.ondemand.com/sap/fpa/ui/app.html#story2&/s2/B7410F85C3295C54BB8CB26C73A37D6C/?mode=present)
+                    markdown: true
+- actions:    
+      - type: message
+        message:
+            type: text
+            content: "Would you also like me to walk you through the mitigation steps?"   
+- actions:
+       - type: message
+         message:
+          type: buttons
+          content:
+            title: ""
+            buttons:
+            - type: postback
+              title: Give Mitigation Steps 
+              value: Can you give mitigation steps for the widget you just showed.

@@ -1,0 +1,5 @@
+description: This scenario helps user to get headcount data widget
+ 
+target:
+  type: function
+  name: headcount

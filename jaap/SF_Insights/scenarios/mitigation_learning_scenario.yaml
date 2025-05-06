@@ -1,0 +1,5 @@
+description: This scenario give mitigation steps for low learning hours
+ 
+target:
+  type: function
+  name: mitigation_learning

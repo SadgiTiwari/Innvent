@@ -1,0 +1,134 @@
+action_groups:
+  - actions:
+      - type: message
+        message:
+            type: text
+            content: "Displaying the Learning Data Widget...."
+      - type: message
+        message:
+          type: ui5integrationCard
+          content:
+            manifest:  {
+                "_version": "1.14.0",
+                "sap.app": {
+                  "id": "card.explorer.location.learning",
+                  "type": "card",
+                  "title": "Learning Hours by Location",
+                  "subTitle": "Total Learnings across Locations",
+                  "applicationVersion": {
+                    "version": "1.0.0"
+                  }
+                },
+                "sap.ui": {
+                  "technology": "UI5",
+                  "icons": {
+                    "icon": "sap-icon://employee"
+                  }
+                },
+                "sap.card": {
+                  "type": "Analytical",
+                  "header": {
+                    "type": "Numeric",
+                    "data": {
+                      "json": {
+                      }
+                    },
+                    "title": "Learning Hours Insights",
+                    "subTitle": "Shows learning hours per location",
+                    "unitOfMeasurement": "",
+                    "mainIndicator": {
+                      "number": "{n}",
+                      "unit": "{u}",
+                      "trend": "{trend}",
+                      "state": "{valueColor}"
+                    },
+                    "details": ""
+                  },
+                  "content": {
+                    "chartType": "stacked_column",
+                    "chartProperties": {
+                      "legend": {
+                        "visible": false
+                      },
+                      "plotArea": {
+                        "dataLabel": {
+                          "visible": false,
+                          "showTotal": true
+                        }
+                      },
+                      "title": {
+                        "text": "Stacked column chart",
+                        "alignment": "bottom"
+                      }
+                    },
+                    "data": {
+                      "request": {
+                        "url": "https://BTP-SAC-service.cfapps.eu12.hana.ondemand.com/api/learning"
+                      },
+                      "path": "/list"
+                    },
+                    "dimensions": [
+                      {
+                        "name": "Location",
+                        "value": "{Location}"
+                      }
+                    ],
+                    "measures": [
+                      {
+                        "name": "learningHours",
+                        "value": "{learningHours}"
+                      }
+                    ],
+                    "feeds": [
+                      {
+                        "type": "Dimension",
+                        "uid": "categoryAxis",
+                        "values": ["Location"]
+                      },
+                      {
+                        "type": "Measure",
+                        "uid": "valueAxis",
+                        "values": ["learningHours"]
+                      }
+                    ]
+                  }
+                }
+              }
+      - type: message
+        message:
+            type: text
+            content: "Would you like to view the SAC story?"
+  # - actions:           
+  #     - type: message
+  #       message:
+  #         type: ui5integrationCard
+  #         content:
+  #           manifest: 
+  #             {
+  #               "sap.card": {
+  #                 "header": {
+  #                   "title": "View SAC Story",
+  #                   "actions": [
+  #                     {
+  #                       "type": "Navigation",
+  #                       "parameters": {
+  #                         "url": "https://basic-trial-sac.cfapps.ap11.hana.ondemand.com/sap/fpa/ui/app.html#story2&/s2/B7410F85C3295C54BB8CB26C73A37D6C/?mode=present",
+  #                         "target": "_blank
+  #                         "
+  #                       }
+  #                     }
+  #                   ]
+  #                 }
+  #               }
+  #             }
+
+  # - actions:
+  #      - type: message
+  #        message:
+  #         type: buttons
+  #         content:
+  #           title: ""
+  #           buttons:
+  #           - type: postback
+  #             title: Give Mitigation Steps 
+  #             value: Can you give mitigation steps for low learning hours

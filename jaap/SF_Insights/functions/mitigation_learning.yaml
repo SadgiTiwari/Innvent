@@ -1,0 +1,6 @@
+action_groups:
+  - actions:
+      - type: message
+        message:
+            type: text
+            content: "Displaying the mitigation steps for Learning Hours Widget...."

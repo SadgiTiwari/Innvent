@@ -1,0 +1,16 @@
+action_groups:
+- actions:    
+      - type: message
+        message:
+            type: text
+            content: "Alright. Would you like help with anything else—perhaps mitigation steps?"   
+- actions:
+       - type: message
+         message:
+          type: buttons
+          content:
+            title: ""
+            buttons:
+            - type: postback
+              title: Give Mitigation Steps 
+              value: Can you give mitigation steps for the widget you just showed.

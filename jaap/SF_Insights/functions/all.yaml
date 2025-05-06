@@ -1,0 +1,24 @@
+action_groups:
+  - actions:
+      - type: message
+        message:
+            type: text
+            content: "You have new notifications from the following widgets:"
+  - actions:
+       - type: message
+         message:
+          type: buttons
+          content:
+            title: ""
+            buttons:
+            - type: postback
+              title: Headcount Breakdown by Location
+              value: Show me headcount data widget.
+            - type: postback
+              title: Learning Hour Breakdown by Location
+              value: Show me learning hours data widget.
+
+
+
+
+  

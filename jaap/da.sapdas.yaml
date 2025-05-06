@@ -1,0 +1,5 @@
+schema_version: 1.0.0
+name: SF_Insights
+capabilities:
+  - type: local
+    folder: ./SF_Insights

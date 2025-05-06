@@ -1,0 +1,5 @@
+description: This scenario is used when user doesn't want to view SAC story.
+ 
+target:
+  type: function
+  name: Extra_help

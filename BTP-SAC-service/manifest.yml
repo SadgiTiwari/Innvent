@@ -1,0 +1,9 @@
+applications:
+  - name: BTP-SAC-service
+    memory: 1024M
+    buildpacks:
+      - java_buildpack
+    path: target/BTP-SAC-service-0.0.1-SNAPSHOT.jar
+    env:
+      SPRING_PROFILES_ACTIVE: cloud
+      JBP_CONFIG_OPEN_JDK_JRE: '{ "jre": { "version": "17.+" } }'

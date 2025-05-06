@@ -1,0 +1,5 @@
+description: This scenario is used to help users with new widget notifications.
+ 
+target:
+  type: function
+  name: all
