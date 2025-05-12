@@ -1,844 +1,718 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>SAP SUCCESSFACTORS</title>
+    <title>SAP SuccessFactors</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://chmsbxproaz.eu12.sapdas.cloud.sap/resources/public/webclient/bootstrap.js"
-        data-bot-name="sadgiassis"
-        data-expander-type="DEFAULT"
-        data-expander-preferences="JTdCJTIyb25ib2FyZGluZ01lc3NhZ2UlMjIlM0ElMjJDb21lJTIwc3BlYWslMjB0byUyMG1lJTIxJTIyJTJDJTIyZXhwYW5kZXJUaXRsZSUyMiUzQSUyMiUyMiUyQyUyMmV4cGFuZGVyTG9nbyUyMiUzQSUyMkNVWF9BdmF0YXIuc3ZnJTIyJTJDJTIydGhlbWUlMjIlM0ElMjJzYXBfaG9yaXpvbiUyMiU3RA==">
-    </script>
+  <script src="https://innvent-for-scholars-sf.eu12.sapdas.cloud.sap/resources/public/webclient/bootstrap.js"
+            data-bot-name="sadgiassis"
+            data-expander-type="DEFAULT"
+            data-expander-preferences="JTdCJTIyb25ib2FyZGluZ01lc3NhZ2UlMjIlM0ElMjJDb21lJTIwc3BlYWslMjB0byUyMG1lJTIxJTIyJTJDJTIyZXhwYW5kZXJUaXRsZSUyMiUzQSUyMiUyMiUyQyUyMmV4cGFuZGVyTG9nbyUyMiUzQSUyMkNVWF9BdmF0YXIuc3ZnJTIyJTJDJTIydGhlbWUlMjIlM0ElMjJzYXBfaG9yaXpvbiUyMiU3RA==">
+    </script> 
 
     <style>
-        body {
-            background-color: #f0f5fc;
-            font-family: 'Segoe UI', sans-serif;
-            color: #333;
-        }
-
-        /* Header Bar */
+        /* --- Original Styles (Keeping these intact, except hiding original header) --- */
         .header-bar {
-            background-color: white;
-            padding: 0.5rem 1.5rem;
-            border-bottom: 1px solid #dee2e6;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            min-height: 75px;
-        }
-
-        .header-bar h1 {
-            font-weight: 600;
-            font-size: 1.3rem;
-            margin: 0;
-            color: #0a6ed1;
-        }
-
-        .icon-area {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .sap-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            cursor: pointer;
-            object-fit: cover;
-            border: 1px solid #eee;
-            vertical-align: middle;
-        }
-
-        /* Notification Button */
-        .notification-btn {
-            width: 48px;
-            height: 48px;
-            /* font-size: 28px; */ /* <-- REMOVED this line */
-            background: none;
-            border: none;
-            position: relative;
-            color: #555;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-        }
-
-        /* Optional: Style the icon itself if needed */
-        .notification-btn i {
-             font-size: 1.5rem; /* Example size: Adjust as needed */
-             line-height: 1;
-        }
-
-
-        .notification-btn:hover {
-            color: #0a6ed1;
-        }
-
-        .notification-btn .badge {
-            font-size: 15px;
-            min-width: 30px;
-            height: 25px;
-            padding: 4px 4px 4px;
-            line-height: 16px;
-            top: -3px;
-            right: -8px;
-            animation: blinking 1.5s infinite;
-            border: 1px solid white;
-            position: absolute;
-        }
-
-        @keyframes blinking {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(0.95); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        /* Quick Actions */
-        .quick-actions-section h2 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #495057;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .quick-action-tile {
-            border-radius: 0.5rem;
-            color: white;
-            font-weight: 500;
-            text-align: center;
-            padding: 0.8rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-            min-height: 85px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.4rem;
-            font-size: 0.85rem;
-        }
-
-        .quick-action-tile:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-            filter: brightness(110%);
-        }
-
-        .quick-action-tile i {
-            font-size: 1.6rem;
-            margin-bottom: 0.2rem;
-        }
-
-        /* Tile Color Variants */
+             background-color: white;
+             padding: 0.5rem 1.5rem;
+             border-bottom: 1px solid #dee2e6;
+             /* display: flex; */ /* Keep display flex commented or none */
+             justify-content: space-between;
+             align-items: center;
+             margin-bottom: 1.5rem;
+             min-height: 55px;
+             display: none; /* Hide the original header */
+         }
+        .header-bar h1 { font-weight: 600; font-size: 1.3rem; margin: 0; color: #0a6ed1; }
+        .icon-area { display: flex; align-items: center; gap: 10px; }
+        .sap-icon { width: 38px; height: 38px; border-radius: 50%; cursor: pointer; object-fit: cover; border: 1px solid #eee; vertical-align: middle; }
+        .notification-btn { width: 38px; height: 38px; font-size: 18px; background: none; border: none; position: relative; color: #555; display: flex; align-items: center; justify-content: center; padding: 0; }
+        .notification-btn:hover { color: #0a6ed1; }
+        .notification-btn .badge { font-size: 10px; min-width: 20px; height: 18px; padding: 0 4px; line-height: 16px; top: -3px; right: -8px; animation: blinking 1.5s infinite; border: 1px solid white; position: absolute; /* Ensure position absolute */ }
+        @keyframes blinking { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.7; transform: scale(0.95); } 100% { opacity: 1; transform: scale(1); } }
+        .quick-actions-section h2 { font-size: 1rem; font-weight: 600; color: #495057; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .quick-action-tile { border-radius: 0.5rem; color: white; font-weight: 500; text-align: center; padding: 0.8rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s; min-height: 85px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; font-size: 0.85rem; }
+        .quick-action-tile i { font-size: 1.6rem; margin-bottom: 0.2rem; }
+        .quick-action-tile:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); filter: brightness(110%); }
         .tile-blue-dark { background-color: #0b5ed7; }
         .tile-pink-dark { background-color: #c72374; }
         .tile-teal-dark { background-color: #1a9f78; }
         .tile-gray-dark { background-color: #5c636a; }
         .tile-purple-dark { background-color: #59359a; }
-
-        /* Dropdown */
-        .dropdown-menu {
-            max-height: 350px;
-            overflow-y: auto;
-            width: 350px;
-            padding-top: 0.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-            border: none;
-        }
-
-        .dropdown-header-custom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem 1rem;
-        }
-
-        .dropdown-item-custom {
-            padding: 0.5rem 1rem;
-            margin: 2px 0;
-            border-radius: 0.25rem;
-        }
-
-        .show-more-link {
-            font-size: 12px;
-            text-align: right;
-            cursor: pointer;
-            color: #007bff;
-            padding: 0.25rem 1rem 0.5rem 1rem;
-            display: block;
-        }
-
-        /* Ask Joule Buttons */
-        .ask-joule-btn-sm {
-            font-size: 0.75rem;
-            padding: 0.1rem 0.4rem;
-            line-height: 1.2;
-            margin-left: auto;
-        }
-
-        .modal-ask-joule-btn {
-            position: absolute;
-            top: 0.8rem;
-            right: 3.5rem;
-            z-index: 1056;
-        }
-
-        /* Modal */
-        .modal-body {
-            max-height: 70vh;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            border-radius: 0.5rem;
-            border: none;
-        }
-
-        .modal-header, .modal-footer {
-            border-color: #dee2e6;
-        }
-
-        /* Criticality Styles */
-        .criticality-high {
-            background-color: #f8d7da !important;
-            border-color: #f5c2c7 !important;
-            color: #842029 !important;
-            border-left: 4px solid #dc3545 !important;
-        }
-
-        .criticality-medium {
-            background-color: #fff3cd !important;
-            border-color: #ffecb5 !important;
-            color: #664d03 !important;
-            border-left: 4px solid #ffc107 !important;
-        }
-
-        .criticality-low {
-            background-color: #d1e7dd !important;
-            border-color: #badbcc !important;
-            color: #0f5132 !important;
-            border-left: 4px solid #198754 !important;
-        }
-
-        .criticality-header {
-            font-weight: bold;
-            padding: 10px;
-            margin: 15px 0 8px 0;
-            border-radius: 5px;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .criticality-header i {
-            font-size: 1.2em;
-        }
-
+        .dropdown-menu { max-height: 350px; overflow-y: auto; width: 350px; padding-top: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border: none; }
+        .dropdown-header-custom { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 1rem; }
+        .dropdown-header-custom strong { margin-bottom: 0; }
+        .dropdown-item-custom { padding: 0.5rem 1rem; margin: 2px 0; border-radius: 0.25rem; }
+        .show-more-link { font-size: 12px; text-align: right; cursor: pointer; color: #007bff; padding: 0.25rem 1rem 0.5rem 1rem; display: block; }
+        .ask-joule-btn-sm { font-size: 0.75rem; padding: 0.1rem 0.4rem; line-height: 1.2; margin-left: auto; }
+        .modal-ask-joule-btn { position: absolute; top: 0.8rem; right: 3.5rem; z-index: 1056; }
+        .modal-body { max-height: 70vh; overflow-y: auto; }
+        .modal-content { border-radius: 0.5rem; border: none; }
+        .modal-header { border-bottom: 1px solid #dee2e6; }
+        .modal-footer { border-top: 1px solid #dee2e6; }
+        .criticality-high { background-color: #f8d7da !important; border-color: #f5c2c7 !important; color: #842029 !important; border-left: 4px solid #dc3545 !important; }
+        .criticality-medium { background-color: #fff3cd !important; border-color: #ffecb5 !important; color: #664d03 !important; border-left: 4px solid #ffc107 !important; }
+        .criticality-low { background-color: #d1e7dd !important; border-color: #badbcc !important; color: #0f5132 !important; border-left: 4px solid #198754 !important; }
+        .criticality-header { font-weight: bold; padding: 10px; margin: 15px 0 8px 0; border-radius: 5px; color: white; display: flex; align-items: center; gap: 0.5rem; }
+        .criticality-header i { font-size: 1.2em; }
         .criticality-header-high { background-color: #dc3545; }
         .criticality-header-medium { background-color: #ffc107; color: #212529; }
         .criticality-header-low { background-color: #198754; }
-
-        /* Notification Item */
-        .notification-item {
-            cursor: pointer;
-            margin-bottom: 5px;
-            transition: transform 0.2s;
-            display: flex;
-            align-items: center;
-            padding: 0.6rem 0.8rem !important;
-        }
-
-        .notification-item:hover {
-            transform: translateX(5px);
-        }
-
-        .notification-item i {
-            margin-right: 0.7rem;
-            font-size: 1.1em;
-            flex-shrink: 0;
-        }
-
-        .notification-item span {
-            flex-grow: 1;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        /* Data Section */
-        .data-section {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.06);
-            margin-top: 2rem;
-            border: 1px solid #e9ecef;
-        }
-
-        /* Tabs */
-        .nav-tabs {
-            border-bottom: 2px solid #dee2e6;
-            margin-bottom: 1.5rem;
-        }
-
-        .nav-tabs .nav-link {
-            border: none;
-            border-bottom: 2px solid transparent;
-            color: #6c757d;
-            font-weight: 500;
-            padding: 0.75rem 1.25rem;
-            margin-bottom: -2px;
-            font-size: 0.9rem;
-        }
-
-        .nav-tabs .nav-link.active {
-            color: #0d6efd;
-            background-color: transparent;
-            border-bottom: 2px solid #0d6efd;
-            font-weight: 600;
-        }
-
-        .nav-tabs .nav-link:hover {
-            color: #0d6efd;
-            border-bottom: 2px solid #0d6efd;
-        }
-
-        .tab-content {
-            min-height: 150px;
-        }
-
-        /* Tables */
-        .table {
-            margin-bottom: 0;
-            font-size: 0.88rem;
-        }
-
-        .table thead th {
-            font-weight: 600;
-            color: #495057;
-            background-color: #f8f9fa;
-            border-bottom: 2px solid #dee2e6;
-            border-top: none;
-            white-space: nowrap;
-            padding: 0.6rem 0.75rem;
-        }
-
-        .table tbody td {
-            vertical-align: middle;
-            color: #333;
-            padding: 0.6rem 0.75rem;
-            border-color: #f1f3f5;
-        }
-
-        .table-hover tbody tr:hover {
-            background-color: #f8f9fa;
-        }
-
-        /* Table Specific Status/Rating Styles (assumed from context, add if needed) */
-        .status-badge, .rating-badge, .rec-badge {
-             padding: 0.2em 0.6em;
-             border-radius: 0.25rem;
-             font-size: 0.75em;
-             font-weight: 600;
-             display: inline-block;
-             line-height: 1;
-             text-align: center;
-             white-space: nowrap;
-             vertical-align: baseline;
-        }
-        .status-open { background-color: #cfe2ff; color: #084298; }
+        .notification-item { cursor: pointer; margin-bottom: 5px; transition: transform 0.2s; display: flex; align-items: center; padding: 0.6rem 0.8rem !important; }
+        .notification-item:hover { transform: translateX(5px); }
+        .notification-item i { margin-right: 0.7rem; font-size: 1.1em; flex-shrink: 0; }
+        .notification-item span { flex-grow: 1; font-size: 0.9rem; line-height: 1.4; }
+        .data-section { background-color: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.06); margin-top: 2rem; border: 1px solid #e9ecef; }
+        .nav-tabs { border-bottom: 2px solid #dee2e6; margin-bottom: 1.5rem; }
+        .nav-tabs .nav-link { border: none; border-bottom: 2px solid transparent; color: #6c757d; font-weight: 500; padding: 0.75rem 1.25rem; margin-bottom: -2px; font-size:0.9rem; }
+        .nav-tabs .nav-link.active { color: #0d6efd; background-color: transparent; border-bottom: 2px solid #0d6efd; font-weight: 600; }
+        .nav-tabs .nav-link:hover { color: #0d6efd; border-bottom: 2px solid #0d6efd; }
+        .tab-content { min-height: 150px; }
+        .table { margin-bottom: 0; font-size: 0.88rem; }
+        .table thead th { font-weight: 600; color: #495057; background-color: #f8f9fa; border-bottom: 2px solid #dee2e6; border-top: none; white-space: nowrap; padding: 0.6rem 0.75rem; }
+        .table tbody td { vertical-align: middle; color: #333; padding: 0.6rem 0.75rem; border-color: #f1f3f5; }
+        .table-hover tbody tr:hover { background-color: #f8f9fa; }
+        .status-badge, .rating-badge, .rec-badge { font-size: 0.75rem; padding: 0.3em 0.6em; border-radius: 0.25rem; font-weight: 600; text-transform: uppercase; display: inline-block; line-height: 1; }
+        .status-open { background-color: #d1e7dd; color: #0f5132; }
         .status-pending { background-color: #fff3cd; color: #664d03; }
-        .status-filled { background-color: #d1e7dd; color: #0f5132; }
-        .rating-good { background-color: #d1e7dd; color: #0f5132; }
-        .rating-average { background-color: #fff3cd; color: #664d03; }
-        .rating-poor { background-color: #f8d7da; color: #842029; }
-        .rec-hire { background-color: #d1e7dd; color: #0f5132; }
-        .rec-hold { background-color: #fff3cd; color: #664d03; }
+        .status-filled { background-color: #e9ecef; color: #495057; }
+        .rec-hire { background-color: #cff4fc; color: #055160; }
         .rec-no-hire { background-color: #f8d7da; color: #842029; }
+        .rec-hold { background-color: #e2e3e5; color: #41464b; }
+        .rating-good { background-color: #d1e7dd; color: #0f5132;}
+        .rating-average { background-color: #fff3cd; color: #664d03;}
+        .rating-poor { background-color: #f8d7da; color: #842029; }
         .trend-up { color: #198754; }
         .trend-down { color: #dc3545; }
         .trend-stable { color: #6c757d; }
-
+ 
+        /* --- NEW STYLES FOR THE UPDATED DESIGN --- */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fcfcfc;
+        }
+        /* Top Navigation Bar - REMOVED by user request */
+        /*
+        .sap-top-navbar {
+            background-color: #1d2d44;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .sap-top-navbar .icon-btn {
+            width: 28px; height: 28px; margin-right: 10px; display: inline-flex; align-items: center; justify-content: center; color: #f8f9fa; opacity: 0.7; transition: opacity 0.2s;
+        }
+        .sap-top-navbar .icon-btn:hover { opacity: 1; }
+        */
+ 
+        /* Main Navigation */
+        .sap-main-navbar {
+            background-color: #0a2a59; /* Dark blue */
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            height: 48px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .sap-logo {
+            display: flex;
+            padding: 0 15px;
+            align-items: center;
+            height: 100%;
+            background-color: #0a2a59; /* Match navbar */
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        .sap-logo img {
+            height: 28px;
+        }
+        .success-map-text {
+            font-size: 14px;
+            font-weight: 300; /* Lighter weight */
+            margin-left: 10px;
+            letter-spacing: 0.5px;
+            color: white;
+        }
+        .powered-by {
+            font-size: 9px;
+            display: block;
+            opacity: 0.7;
+        }
+        .nav-menu-container {
+            display: flex;
+            height: 100%;
+        }
+        .nav-menu-item {
+            color: white;
+            padding: 0 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 14px;
+            position: relative;
+            cursor: pointer;
+            text-decoration: none; /* Added for potential <a> usage */
+        }
+         .nav-menu-item:hover {
+             background-color: rgba(255,255,255,0.05);
+         }
+        .nav-menu-item.active {
+            background-color: rgba(255,255,255,0.1);
+        }
+        .nav-menu-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #4db8ff; /* Bright blue indicator */
+        }
+        .nav-menu-item .dropdown-icon {
+            margin-left: 5px;
+            font-size: 10px;
+        }
+        .search-container {
+            margin-left: auto; /* Push following items right */
+            display: flex;
+            align-items: center;
+            width: 300px; /* Fixed width for search */
+            padding: 0 10px; /* Padding around search */
+        }
+        .search-box {
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            padding: 6px 12px;
+            color: white;
+            width: 100%;
+            font-size: 13px;
+        }
+        .search-box::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+        .navbar-right-icons {
+            display: flex;
+            margin-left: 10px; /* Space after search */
+            align-items: center;
+        }
+        .navbar-icon {
+            color: white;
+            width: 36px; /* Button size */
+            height: 36px; /* Button size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative; /* For badge */
+            opacity: 0.85;
+            transition: opacity 0.2s;
+            cursor: pointer;
+            background: none; /* Ensure button background is transparent */
+            border: none; /* Ensure button border is none */
+            padding: 0; /* Ensure no extra padding */
+        }
+         a.navbar-icon { /* Style if using <a> tag */
+             text-decoration: none;
+         }
+        .navbar-icon:hover {
+            opacity: 1;
+            background-color: rgba(255, 255, 255, 0.1); /* Slight hover effect */
+            border-radius: 4px;
+        }
+        .navbar-icon .badge {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 10px;
+            font-weight: bold;
+            background-color: #ff4a4a; /* Red badge */
+            color: white;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1; /* Ensure text fits */
+        }
+         /* Specific styling for Joule icon image if needed */
+        .navbar-icon img.sap-icon {
+             width: 28px; /* Slightly smaller */
+             height: 28px; /* Slightly smaller */
+             border-radius: 50%;
+        }
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-left: 10px; /* Space before avatar */
+            margin-right: 15px; /* Space after avatar */
+            background-color: #fff;
+            color: #0a2a59; /* Match navbar bg */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+ 
+        /* Hero Banner */
+        .hero-banner {
+            height: 170px;
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://picsum.photos/1600/400'); /* Placeholder */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .hero-banner h1 {
+            font-size: 42px;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+ 
+        /* Quick Actions Redesign */
+        .quick-actions-container {
+            padding: 20px 30px;
+            max-width: 1200px; /* Limit width */
+            margin: 0 auto; /* Center container */
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            margin-top: 15px; /* Space above title */
+        }
+        .action-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px; /* Space between cards */
+        }
+        .action-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            width: 100px; /* Fixed width */
+            height: 100px; /* Fixed height */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            padding: 10px;
+            border: 1px solid transparent; /* Add border for hover effect */
+        }
+        .action-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-color: #0a6ed1; /* Highlight on hover */
+        }
+        .action-card i {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #0a6ed1; /* Icon color */
+        }
+        .action-card span {
+            font-size: 11px;
+            text-align: center;
+            color: #333;
+            font-weight: 500;
+            line-height: 1.2; /* Adjust line height for wrapping */
+        }
+ 
+        /* Surveys Section */
+        .surveys-container {
+            padding: 0 30px 30px;
+            max-width: 1200px; /* Limit width */
+            margin: 0 auto; /* Center container */
+        }
+        .survey-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+            max-width: 350px; /* Max card width */
+        }
+        .survey-image {
+            height: 160px;
+            background-image: url('https://picsum.photos/400/200'); /* Placeholder */
+            background-size: cover;
+            background-position: center;
+        }
+        .survey-content {
+            padding: 15px;
+        }
+        .survey-title {
+            font-size: 12px;
+            color: #0a6ed1; /* Blue title */
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .survey-description {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .survey-details {
+            font-size: 12px;
+            color: #666;
+        }
+ 
     </style>
 </head>
 <body>
-
-<div class="header-bar">
-    <h1>SAP SUCCESSFACTORS</h1>
-    <div class="icon-area">
-
-        <div class="dropdown">
-            <button class="btn btn-light position-relative notification-btn" type="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-bell-fill"></i> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                      th:text="${#lists.size(headcountNotifications) + #lists.size(learningNotifications)}">0</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
-
-                <li>
-                    <div class="dropdown-header-custom">
-                        <h6 class="dropdown-header px-0 py-0">Notifications</h6>
-                        <button class="btn btn-outline-primary btn-sm ask-joule-btn-sm" onclick="openJoule(0)">Ask Joule</button>
-                    </div>
-                </li>
-                 <li><hr class="dropdown-divider mt-1 mb-1"></li>
-
-                <li th:if="${not #lists.isEmpty(headcountNotifications)}">
-                    <div class="dropdown-header-custom">
-                        <strong class="text-primary">Headcount Data</strong>
-                    </div>
-                    <div class="alert dropdown-item-custom p-2 m-1 criticality-high notification-item" onclick="openJoule(1)">
-                        <i class="bi bi-exclamation-triangle-fill"></i>
-                        <strong>URGENT:</strong> Headcount Dipped
-                    </div>
-
-                    <div th:if="${#lists.size(headcountNotifications) > 1}"
-                         class="show-more-link"
-                         onclick="showNotificationModal('headcount')">
-                        Show more...
-                    </div>
-                     <li><hr class="dropdown-divider mt-1 mb-1"></li>
-                </li>
-
-                <li th:if="${not #lists.isEmpty(learningNotifications)}">
-                    <div class="dropdown-header-custom">
-                        <strong class="text-success">Learning Hours Data</strong>
-                    </div>
-                     <div class="alert dropdown-item-custom p-2 m-1 criticality-high notification-item" onclick="openJoule(2)">
-                        <i class="bi bi-exclamation-triangle-fill"></i>
-                        <strong>URGENT:</strong> Learning Hours Dipped
-                    </div>
-
-                    <div th:if="${#lists.size(learningNotifications) > 1}"
-                         class="show-more-link"
-                         onclick="showNotificationModal('learning')">
-                         Show more...
-                    </div>
+ 
+    <div class="sap-main-navbar">
+        <div class="sap-logo">
+            <img src="https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg/sap-logo-svg.svg" alt="SAP Logo">
+            <div class="success-map-text">
+                <span class="powered-by">POWERED BY SAC</span>
+                SuccessFactors
+            </div>
+        </div>
+ 
+        <div class="nav-menu-container">
+            <div class="nav-menu-item active"> Home <i class="bi bi-chevron-down dropdown-icon"></i>
+            </div>
+            </div>
+ 
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search for actions or people">
+        </div>
+ 
+        <div class="navbar-right-icons">
+            <div class="dropdown"> <button class="navbar-icon" type="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false" title="Notifications">
+                    <i class="bi bi-bell-fill"></i>
+                    <span class="badge" id="notificationCountBadge" style="display: none;">0</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
+                    <li><div class="dropdown-header-custom"><h6 class="dropdown-header px-0 py-0">Notifications</h6><button class="btn btn-outline-primary btn-sm ask-joule-btn-sm" onclick="openJoule(0)">Ask Joule</button></div></li>
                     <li><hr class="dropdown-divider mt-1 mb-1"></li>
-                </li>
-
-                <li th:if="${#lists.isEmpty(headcountNotifications) and #lists.isEmpty(learningNotifications)}" class="text-muted text-center p-3">
-                    No new notifications
-                </li>
-            </ul>
+                    <li id="headcountPreviewLi" style="display: none;"><div class="dropdown-header-custom"><strong class="text-primary">Headcount Data</strong></div><div id="headcountPreviewItem" class="alert dropdown-item-custom p-2 m-1 notification-item" onclick="openJoule(1)"></div><div id="headcountShowMore" class="show-more-link" onclick="showNotificationModal('headcount')">Show more...</div><li><hr class="dropdown-divider mt-1 mb-1"></li></li>
+                    <li id="learningPreviewLi" style="display: none;"><div class="dropdown-header-custom"><strong class="text-success">Learning Hours Data</strong></div><div id="learningPreviewItem" class="alert dropdown-item-custom p-2 m-1 notification-item" onclick="openJoule(2)"></div><div id="learningShowMore" class="show-more-link" onclick="showNotificationModal('learning')">Show more...</div><li><hr class="dropdown-divider mt-1 mb-1"></li></li>
+                    <li id="noNotificationsLi" class="text-muted text-center p-3" style="display: none;">No new notifications</li>
+                </ul>
+            </div>
+ 
+            <a href="https://innvent-for-scholars-sf.eu12.sapdas.cloud.sap/webclient/standalone/sadgiassis" target="_blank" title="Explore SAP Joule" class="navbar-icon">
+                <img class="sap-icon" src="https://www.sap.com/dam/site/sapcom/multimedia/2023/09/b6a38432-8e7e-0010-bca6-c68f7e60039b.mp4/_jcr_content/renditions/cq5dam.thumbnail.640.360.jpg" alt="SAP Joule">
+            </a>
+ 
+            <button class="navbar-icon" title="Settings">
+                <i class="bi bi-gear-fill"></i>
+            </button>
+ 
+            <div class="user-avatar" title="User Profile">
+                R </div>
         </div>
-
-        <a href="https://chmsbxproaz.eu12.sapdas.cloud.sap/webclient/standalone/sadgiassis" target="_blank">
-            <img class="sap-icon"
-                 src="https://www.sap.com/dam/site/sapcom/multimedia/2023/09/b6a38432-8e7e-0010-bca6-c68f7e60039b.mp4/_jcr_content/renditions/cq5dam.thumbnail.640.360.jpg"
-                 alt="SAP Joule"
-                 title="Explore SAP Joule">
-        </a>
     </div>
-</div>
-
-<div class="container mt-4">
-    <div class="quick-actions-section mb-4">
-         <h2>QUICK ACTIONS</h2>
-         <div class="row g-3">
-            <div class="col-6 col-md-3"><div class="quick-action-tile tile-blue-dark"><i class="bi bi-book"></i><span>View My Learning</span></div></div>
-            <div class="col-6 col-md-3"><div class="quick-action-tile tile-pink-dark"><i class="bi bi-people"></i><span>Manage My Team</span></div></div>
-            <div class="col-6 col-md-3"><div class="quick-action-tile tile-teal-dark"><i class="bi bi-clock-history"></i><span>Clock My Time</span></div></div>
-            <div class="col-6 col-md-3"><div class="quick-action-tile tile-gray-dark"><i class="bi bi-calendar-plus"></i><span>Request Time Off</span></div></div>
-            <div class="col-6 col-md-3"><div class="quick-action-tile tile-purple-dark"><i class="bi bi-diagram-3"></i><span>View Org Chart</span></div></div>
-            <div class="col-6 col-md-3"><div class="quick-action-tile tile-blue-dark"><i class="bi bi-bullseye"></i><span>Manage My Goals</span></div></div>
-            <div class="col-6 col-md-3"><div class="quick-action-tile tile-pink-dark"><i class="bi bi-graph-up-arrow"></i><span>Growth Portfolio</span></div></div>
-            <div class="col-6 col-md-3"><div class="quick-action-tile tile-teal-dark"><i class="bi bi-person-gear"></i><span>Dynamic Teams</span></div></div>
-         </div>
+ 
+    <div class="hero-banner">
+        <h1>Good evening!</h1>
     </div>
-
-    <div class="data-section">
-        <ul class="nav nav-tabs" id="dataTabs" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="requisitions-tab" data-bs-toggle="tab" data-bs-target="#requisitions-pane" type="button" role="tab" aria-controls="requisitions-pane" aria-selected="true">Job Requisitions</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="feedback-tab" data-bs-toggle="tab" data-bs-target="#feedback-pane" type="button" role="tab" aria-controls="feedback-pane" aria-selected="false">Interview Feedback</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="metrics-tab" data-bs-toggle="tab" data-bs-target="#metrics-pane" type="button" role="tab" aria-controls="metrics-pane" aria-selected="false">People Metrics</button>
-          </li>
-        </ul>
-
-        <div class="tab-content" id="dataTabsContent">
-          <div class="tab-pane fade show active" id="requisitions-pane" role="tabpanel" aria-labelledby="requisitions-tab" tabindex="0">
-             <div class="table-responsive">
-                <table class="table table-hover align-middle">
-                    <thead><tr><th scope="col">Req ID</th><th scope="col">Position</th><th scope="col">Department</th><th scope="col">Status</th><th scope="col">Open Since</th><th scope="col">Candidates</th></tr></thead>
-                    <tbody>
-                      <tr><td>REQ-2025-105</td><td>Senior Software Engineer</td><td>Engineering</td><td><span class="status-badge status-open">Open</span></td><td>15 days</td><td>8</td></tr>
-                      <tr><td>REQ-2025-104</td><td>HR Business Partner</td><td>Human Resources</td><td><span class="status-badge status-pending">Pending Approval</span></td><td>5 days</td><td>0</td></tr>
-                      <tr><td>REQ-2025-103</td><td>Product Manager</td><td>Product</td><td><span class="status-badge status-filled">Filled</span></td><td>32 days</td><td>12</td></tr>
-                       <tr><td>REQ-2025-102</td><td>UX Designer</td><td>Design</td><td><span class="status-badge status-open">Open</span></td><td>22 days</td><td>15</td></tr>
-                    </tbody>
-                </table>
+ 
+    <div class="header-bar">
+        <h1>SAP SuccessFactors</h1>
+        <div class="icon-area">
+            <div class="dropdown">
+                <button class="btn position-relative notification-btn" type="button" id="originalNotificationDropdown" data-bs-toggle="dropdown" aria-expanded="false" title="Notifications">
+                    <i class="bi bi-bell-fill"></i>
+                    <span class="position-absolute translate-middle badge rounded-pill bg-danger" id="originalNotificationCountBadge">0</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="originalNotificationDropdown">
+                    </ul>
+            </div>
+            <a href="https://chmsbxproaz.eu12.sapdas.cloud.sap/webclient/standalone/sadgiassis" target="_blank" title="Explore SAP Joule">
+                <img class="sap-icon" src="https://www.sap.com/dam/site/sapcom/multimedia/2023/09/b6a38432-8e7e-0010-bca6-c68f7e60039b.mp4/_jcr_content/renditions/cq5dam.thumbnail.640.360.jpg" alt="SAP Joule">
+            </a>
+        </div>
+    </div>
+ 
+    <div class="quick-actions-container">
+        <h2 class="section-title">Quick Actions</h2>
+        <div class="action-cards">
+             <div class="action-card"> <i class="bi bi-person-vcard"></i> <span>View My Profile</span> </div>
+             <div class="action-card"> <i class="bi bi-diagram-3"></i> <span>View Org Chart</span> </div>
+             <div class="action-card"> <i class="bi bi-file-earmark-person"></i> <span>View My Employee File</span> </div>
+             <div class="action-card"> <i class="bi bi-calendar-plus"></i> <span>Request Time Off</span> </div>
+             <div class="action-card"> <i class="bi bi-bullseye"></i> <span>Manage My Goals</span> </div>
+             <div class="action-card"> <i class="bi bi-book"></i> <span>View My Learning</span> </div>
+             <div class="action-card"> <i class="bi bi-hand-thumbs-up"></i> <span>Appreciate a Colleague</span> </div>
+             <div class="action-card"> <i class="bi bi-people"></i> <span>Fellowships</span> </div>
+             <div class="action-card"> <i class="bi bi-cash-coin"></i> <span>My Paystubs</span> </div>
+             <div class="action-card"> <i class="bi bi-graph-up-arrow"></i> <span>My Equity</span> </div>
+             <div class="action-card"> <i class="bi bi-phone"></i> <span>Activate Mobile App</span> </div>
+             <div class="action-card"> <i class="bi bi-clock-history"></i> <span>View Pending Workflows</span> </div>
+             <div class="action-card"> <i class="bi bi-shop"></i> <span>View Opportunity Marketplace</span> </div>
+             <div class="action-card"> <i class="bi bi-alarm"></i> <span>View Reminders</span> </div>
+             <div class="action-card"> <i class="bi bi-star"></i> <span>View Favorites</span> </div>
              </div>
-          </div>
-
-          <div class="tab-pane fade" id="feedback-pane" role="tabpanel" aria-labelledby="feedback-tab" tabindex="0">
-             <div class="table-responsive">
-                <table class="table table-hover align-middle">
-                    <thead>
-                      <tr>
-                        <th scope="col">Candidate</th>
-                        <th scope="col">Position</th>
-                        <th scope="col">Interviewer</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Overall Rating</th>
-                        <th scope="col">Recommendation</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Alice Wonderland</td>
-                        <td>Senior Software Engineer</td>
-                        <td>Bob The Builder</td>
-                        <td>2025-05-01</td>
-                        <td><span class="rating-badge rating-good">Good</span></td>
-                        <td><span class="rec-badge rec-hire">Hire</span></td>
-                      </tr>
-                       <tr>
-                        <td>Charlie Chaplin</td>
-                        <td>UX Designer</td>
-                        <td>Diana Prince</td>
-                        <td>2025-04-28</td>
-                        <td><span class="rating-badge rating-average">Average</span></td>
-                        <td><span class="rec-badge rec-hold">Hold</span></td>
-                      </tr>
-                       <tr>
-                        <td>Edward Scissorhands</td>
-                        <td>Senior Software Engineer</td>
-                        <td>Bob The Builder</td>
-                        <td>2025-05-02</td>
-                         <td><span class="rating-badge rating-poor">Poor</span></td>
-                        <td><span class="rec-badge rec-no-hire">No Hire</span></td>
-                      </tr>
-                       <tr>
-                        <td>Fiona Shrek</td>
-                        <td>HR Business Partner</td>
-                        <td>Grace Hopper</td>
-                        <td>2025-04-30</td>
-                         <td><span class="rating-badge rating-good">Good</span></td>
-                        <td><span class="rec-badge rec-hire">Hire</span></td>
-                      </tr>
-                    </tbody>
-                </table>
-             </div>
-          </div>
-
-          <div class="tab-pane fade" id="metrics-pane" role="tabpanel" aria-labelledby="metrics-tab" tabindex="0">
-             <div class="table-responsive">
-                <table class="table table-hover align-middle">
-                    <thead>
-                      <tr>
-                        <th scope="col">Metric</th>
-                        <th scope="col">Value</th>
-                        <th scope="col">Trend (vs Last Quarter)</th>
-                        <th scope="col">Target</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Active Headcount</td>
-                        <td>1,450</td>
-                        <td><i class="bi bi-arrow-up trend-up"></i> +25</td>
-                        <td>1,500</td>
-                      </tr>
-                      <tr>
-                        <td>Avg. Employee Tenure</td>
-                        <td>4.2 Years</td>
-                         <td><i class="bi bi-arrow-down trend-down"></i> -0.1yr</td>
-                        <td>4.5 Years</td>
-                      </tr>
-                      <tr>
-                        <td>Quarterly Attrition Rate</td>
-                        <td>3.5%</td>
-                        <td><i class="bi bi-arrow-up trend-down"></i> +0.5%</td>
-                        <td>&lt; 3.0%</td>
-                      </tr>
-                       <tr>
-                        <td>Avg. Training Hours / Employee</td>
-                        <td>18.5 hrs</td>
-                        <td><i class="bi bi-arrow-right trend-stable"></i> +0 hrs</td>
-                        <td>20 hrs</td>
-                      </tr>
-                       <tr>
-                        <td>Diversity Ratio (Female/Male)</td>
-                        <td>42% / 58%</td>
-                        <td><i class="bi bi-arrow-up trend-up"></i> +1% Female</td>
-                        <td>45% / 55%</td>
-                      </tr>
-                    </tbody>
-                </table>
-             </div>
-          </div>
-
+    </div>
+ 
+    <div class="surveys-container">
+        <h2 class="section-title">Surveys</h2>
+        <div class="survey-card">
+            <div class="survey-image"></div> <div class="survey-content">
+                <div class="survey-title">#Unfiltered Survey 2025</div>
+                <div class="survey-description">Share your thoughts in the #Unfiltered survey and help shape our future!</div>
+                <div class="survey-details">Survey ends on May 7, 2025</div>
+            </div>
+        </div>
+        </div>
+ 
+    <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="notificationModalLabel">All Notifications</h5>
+                    <button type="button" id="modalAskJouleBtn" class="btn btn-outline-primary modal-ask-joule-btn" onclick="openJoule(0)">Ask Joule</button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalNotificationContent">
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
 
-</div>
-
-<div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg"> <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="notificationModalLabel">All Notifications</h5>
-        <button type="button" id="modalAskJouleBtn" class="btn btn-outline-primary modal-ask-joule-btn" onclick="openJoule(0)">Ask Joule</button>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" id="modalNotificationContent">
-        </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<script th:inline="javascript">
-    /*<![CDATA[*/
-    // Sample data - replace with actual data in production
-    const allHeadcountNotifications = /*[[${headcountNotifications}]]*/ [
-        "Headcount in Engineering reduced by 5%",
-        "IT Department shows 8% decline in personnel",
-        "Marketing team headcount increased by 2%",
-        "Sales team staffing below target by 12%",
-        "Production team shows critical staffing gap of 15%",
-        "Finance department showing 3% understaffing",
-        "R&D team requires immediate hiring, 18% understaffed",
-        "Customer support team headcount stable",
-        "Administrative staff over budget by 4%"
-    ];
-
-    const allLearningNotifications = /*[[${learningNotifications}]]*/ [
-        "Compliance training completion rate dropped to 78%",
-        "Technical skills training hours increased by 5%",
-        "Management training hours below target by 15%",
-        "New hire onboarding showing 20% delay",
-        "Safety training needs immediate attention, 25% below requirement",
-        "Sales training completion rate at acceptable 92%",
-        "Product knowledge training hours up by 8%",
-        "Leadership development program underutilized by 10%"
-    ];
-
-    let notificationModal = null; // To hold the modal instance
-
-    document.addEventListener('DOMContentLoaded', (event) => {
-        // Initialize the modal instance once the DOM is ready
-        const modalElement = document.getElementById('notificationModal');
-        if (modalElement) {
-            notificationModal = new bootstrap.Modal(modalElement);
-        }
-
-        // Sort notifications when the DOM is loaded
-        sortNotifications();
-    });
-
-    /*]]>*/
-</script>
-
-<script>
-    // Function to sort notifications in ascending order (based on numeric value if present)
-    function sortNotifications() {
-        const sortFn = (a, b) => {
-            const aMatch = a.match(/[-+]?\d+(\.\d+)?%?/); // Match numbers potentially followed by %
-            const bMatch = b.match(/[-+]?\d+(\.\d+)?%?/);
-            let aVal = null;
-            let bVal = null;
-
-            if (aMatch) aVal = parseFloat(aMatch[0]);
-            if (bMatch) bVal = parseFloat(bMatch[0]);
-
-            // Prioritize negative changes or larger percentage drops/gaps (more critical)
-            // Treat decreases/gaps as 'more negative' = higher priority
-            // Treat increases as 'less negative' or positive = lower priority
-            // If one is negative and the other positive, negative comes first.
-            if (aVal !== null && bVal !== null) {
-                 // Simple numeric sort might put large positive numbers first.
-                 // Let's adjust logic based on keywords if needed, or rely on simple value sort for now
-                 // Example: If 'below target', 'decline', 'reduced', 'gap', 'understaffed' treat as more critical.
-                 // For simplicity, we'll just sort numerically ascending for now.
-                 // Consider more complex logic if strict criticality ordering is needed beyond value.
-                 return aVal - bVal; // Ascending sort by number
-            } else if (aVal !== null) {
-                return -1; // Numbers come before non-numbers
-            } else if (bVal !== null) {
-                return 1; // Non-numbers come after numbers
-            }
-            return a.localeCompare(b); // Fallback to string comparison
-        };
-
-
-        if (allHeadcountNotifications && allHeadcountNotifications.length > 0) {
-            allHeadcountNotifications.sort(sortFn);
-        }
-
-        if (allLearningNotifications && allLearningNotifications.length > 0) {
-            allLearningNotifications.sort(sortFn);
-        }
-    }
-
-
-    // Function to determine criticality class based on index in the sorted array
-    function getCriticalityClass(index, totalItems) {
-        if (!totalItems || totalItems === 0) return 'criticality-low';
-
-        const highThreshold = Math.ceil(totalItems * 0.33);
-        const mediumThreshold = Math.ceil(totalItems * 0.66);
-
-        // Assuming lower index after sort means higher criticality
-        if (index < highThreshold) {
-            return 'criticality-high'; // Top 33% - Red
-        } else if (index < mediumThreshold) {
-            return 'criticality-medium'; // Middle 33% - Yellow
-        } else {
-            return 'criticality-low'; // Bottom 33% - Green
-        }
-    }
-
-    // Modify openJoule function to close dropdown/modal
-    function openJoule(widgetId) {
-        if (window.sap.das.webclient) {
-            // --- Begin: Close Dropdown and Modal Logic ---
-            try {
-                // Close the notification dropdown if it's open
-                const dropdownTriggerEl = document.getElementById('notificationDropdown');
-                if (dropdownTriggerEl) {
-                    const dropdownInstance = bootstrap.Dropdown.getInstance(dropdownTriggerEl);
-                    // Ensure instance exists and check if shown before hiding
-                    if (dropdownInstance && (dropdownTriggerEl.classList.contains('show') || dropdownTriggerEl.getAttribute('aria-expanded') === 'true')) {
-                         dropdownInstance.hide();
-                    }
-                }
-
-                // Close the notification modal if it's open and the instance exists
-                if (notificationModal) { // notificationModal is the global instance
-                     const modalElement = document.getElementById('notificationModal');
-                     // Ensure modal element exists and check if shown before hiding
-                     if (modalElement && modalElement.classList.contains('show')) {
-                        notificationModal.hide();
-                     }
-                }
-            } catch (error) {
-                console.error("Error hiding dropdown or modal:", error);
-            }
-            // --- End: Close Dropdown and Modal Logic ---
-
-
-            // --- Joule Interaction Logic (existing) ---
-            window.sap.das.webclient.resetConversation();
-            let prompt = '';
-            if (widgetId === 1) {
-                prompt = "Show me headcount data widget.";
-            } else if (widgetId === 2) {
-                prompt = "Show me learning hours data widget.";
-            }
-            else {
-                 prompt = "Can you show me all the available widgets?"; // Default prompt
-            }
-            // Only send message if a prompt is set
-            if (prompt) {
-               window.sap.das.webclient.sendMessage(prompt);
-            }
-            // Always toggle Joule when the button is clicked
-            window.sap.das.webclient.toggle();
-            // --- End: Joule Interaction Logic ---
-
-        } else {
-            console.error('Joule Web Client not loaded.');
-            alert('Joule Web Client is not available.'); // User feedback
-        }
-    }
-
-    function showNotificationModal(type) {
-        if (!notificationModal) {
-            console.error('Notification modal instance not ready.');
-            return;
-        }
-
-        const modalTitle = document.getElementById('notificationModalLabel');
-        const modalBody = document.getElementById('modalNotificationContent');
-        const modalJouleBtn = document.getElementById('modalAskJouleBtn');
-        let notificationsToShow = [];
-        let jouleWidgetId = 0;
-
-        modalBody.innerHTML = ''; // Clear previous content
-
-        if (type === 'headcount') {
-            modalTitle.textContent = 'All Headcount Notifications';
-            notificationsToShow = allHeadcountNotifications;
-            jouleWidgetId = 1;
-        } else if (type === 'learning') {
-            modalTitle.textContent = 'All Learning Hours Notifications';
-            notificationsToShow = allLearningNotifications;
-            jouleWidgetId = 2;
-        } else {
-            console.error('Unknown notification type:', type);
-            return;
-        }
-
-        modalJouleBtn.setAttribute('onclick', `openJoule(${jouleWidgetId})`);
-
-        if (notificationsToShow.length > 0) {
-            const groupedNotifications = { high: [], medium: [], low: [] };
-
-            notificationsToShow.forEach((note, index) => {
-                const criticalityClass = getCriticalityClass(index, notificationsToShow.length);
-                const item = { note, index, jouleWidgetId };
-                if (criticalityClass === 'criticality-high') {
-                    groupedNotifications.high.push(item);
-                } else if (criticalityClass === 'criticality-medium') {
-                    groupedNotifications.medium.push(item);
-                } else {
-                    groupedNotifications.low.push(item);
-                }
-            });
-
-            const createSection = (title, iconClass, headerClass, items) => {
-                if (items.length === 0) return;
-
-                const header = document.createElement('div');
-                header.className = `criticality-header ${headerClass}`;
-                header.innerHTML = `<i class="bi ${iconClass}"></i> ${title}`;
-                modalBody.appendChild(header);
-
-                items.forEach(item => {
-                    const div = document.createElement('div');
-                    // Determine the specific alert class based on the grouping
-                    let alertClass = '';
-                    if (headerClass.includes('high')) alertClass = 'criticality-high';
-                    else if (headerClass.includes('medium')) alertClass = 'criticality-medium';
-                    else alertClass = 'criticality-low';
-
-                    div.className = `alert p-2 m-1 ${alertClass} notification-item`;
-                    // Make urgent/important items bold
-                    div.innerHTML = (alertClass === 'criticality-high' || alertClass === 'criticality-medium')
-                                     ? `<strong>${item.note}</strong>`
-                                     : item.note;
-                    div.style.cursor = 'pointer';
-                    div.onclick = () => openJoule(item.jouleWidgetId);
-                    modalBody.appendChild(div);
-                });
+    <script>
+        window.onload = function () {
+            // OAuth token endpoint
+            const tokenUrl = 'https://innvent-for-scholars-sf.authentication.eu12.hana.ondemand.com/oauth/token';
+            
+            // API endpoint
+            const apiUrl = 'https://unified-ai-agent-srv-unified-agent.c-1228ddd.stage.kyma.ondemand.com/api/v1/Agents(2c10c329-0c21-4a6a-99f2-47a9f182a4fb)/chats(7e47e733-5317-4ba5-8781-0e4d771bcca1)/UnifiedAiAgentService.sendMessage';
+            
+            // OAuth credentials
+            const clientId = 'sb-93d76eb3-d720-4b06-85dc-3886c0015439!b1163373|unified-ai-agent!b268611';
+            const clientSecret = 'fb6c446f-6c67-4365-813d-8638716d4c37$bGzFkaDOk8FpwJKHslr72qZO6kUUaa_jV92v_aXjgoE=';
+            
+            // Message payload
+            const payload = {
+                "msg": "Execute Initial Instructions"
             };
+            
+            // First, get the token
+            getToken()
+                .then(token => {
+                    // Then make the API request with the obtained token
+                    return makeApiRequest(token);
+                })
+                .then(data => {
+                    console.log('API Response:', data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            
+            // Function to get OAuth token
+            function getToken() {
+                const formData = new URLSearchParams();
+                formData.append('grant_type', 'client_credentials');
+                formData.append('client_id', clientId);
+                formData.append('client_secret', clientSecret);
+                
+                return fetch(tokenUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Token request failed with status ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Token obtained successfully');
+                    return data.access_token;
+                });
+            }
+            
+            // Function to make the API request
+            function makeApiRequest(token) {
+                return fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(payload)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`API request failed with status ${response.status}`);
+                    }
+                    return response.json();
+                });
+            }
+        };
+    </script>
 
-            createSection('URGENT - Immediate Action Required', 'bi-exclamation-triangle-fill', 'criticality-header-high', groupedNotifications.high);
-            createSection('IMPORTANT - Action Required Soon', 'bi-exclamation-circle-fill', 'criticality-header-medium', groupedNotifications.medium);
-            createSection('NORMAL - For Information', 'bi-info-circle-fill', 'criticality-header-low', groupedNotifications.low);
+    <script>
+        let lastKnownUpdateTime = 0;
+        const pollingInterval = 3000; // Poll every 3 seconds (adjust as needed)
 
-        } else {
-            modalBody.innerHTML = '<p class="text-muted">No notifications for this category.</p>';
+        async function checkNotifications() {
+            try {
+                const response = await fetch('/api/lastUpdateTime');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const currentUpdateTime = await response.json();
+
+                // Fetch the initial time on the first check if not already set
+                if (lastKnownUpdateTime === 0) {
+                     // Fetch current time on page load to avoid immediate reload
+                     const initialResponse = await fetch('/api/lastUpdateTime');
+                     lastKnownUpdateTime = await initialResponse.json();
+                } else if (currentUpdateTime > lastKnownUpdateTime) {
+                    console.log("Notifications updated. Reloading page...");
+                    window.location.reload(); // Trigger a full page reload
+                }
+
+                lastKnownUpdateTime = currentUpdateTime; // Update last known time
+
+            } catch (error) {
+                console.error("Error checking notifications:", error);
+                // Decide how to handle errors, e.g., stop polling or retry
+            }
         }
 
-        notificationModal.show();
-    }
-</script>
+        // Start polling when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+             // Perform an initial check to get the first timestamp
+             checkNotifications().then(() => {
+                 // Then start the interval polling
+                 setInterval(checkNotifications, pollingInterval);
+             });
+        });
+
+
+    </script>
+    
+ 
+    <script th:inline="javascript">
+        const rawHeadcountNotifications = /*[[${headcountNotifications}]]*/ [ "Headcount in Engineering reduced by 5%", "IT Department shows 8% decline in personnel", "Marketing team headcount increased by 2%", "Sales team staffing below target by 12%", "Production team shows critical staffing gap of 15%", "Finance department showing 3% understaffing", "R&D team requires immediate hiring, 18% understaffed", "Customer support team headcount stable", "Administrative staff over budget by 4%" ];
+        const rawLearningNotifications = /*[[${learningNotifications}]]*/ [ "Compliance training completion rate dropped to 78%", "Technical skills training hours increased by 5%", "Management training hours below target by 15%", "New hire onboarding showing 20% delay", "Safety training needs immediate attention, 25% below requirement", "Sales training completion rate at acceptable 92%", "Product knowledge training hours up by 8%", "Leadership development program underutilized by 10%" ];
+ 
+        let processedHeadcountNotifications = [];
+        let processedLearningNotifications = [];
+        let notificationModal = null;
+        // No need to manually initialize dropdown if using data-bs-* attributes
+ 
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const modalElement = document.getElementById('notificationModal');
+            if (modalElement) { notificationModal = new bootstrap.Modal(modalElement); }
+ 
+            // Ensure dropdowns associated with dynamic content are handled if necessary
+            // (Bootstrap typically handles static data-bs-toggle automatically)
+ 
+            sortAndPrepareNotifications();
+            updateNotificationBadge();
+            updateDropdownPreview(); // This populates the dropdown menu content
+        });
+    </script>
+ 
+    <script>
+        // --- Javascript Functions (updateNotificationBadge slightly modified) ---
+        function getCriticalityInfo(index, totalItems) { if (!totalItems || totalItems === 0) return { class: 'criticality-low', icon: 'bi-info-circle-fill' }; const highThreshold = Math.ceil(totalItems * 0.33); const mediumThreshold = Math.ceil(totalItems * 0.66); if (index < highThreshold) { return { class: 'criticality-high', icon: 'bi-exclamation-triangle-fill' }; } else if (index < mediumThreshold) { return { class: 'criticality-medium', icon: 'bi-exclamation-circle-fill' }; } else { return { class: 'criticality-low', icon: 'bi-info-circle-fill' }; } }
+        function extractNumericValue(str) { const match = str.match(/([-+]?\d+(\.\d+)?)/); let numericVal = match ? parseFloat(match[0]) : null; if (numericVal === null) return 0; if (/below|decline|understaffed|gap|delay|dropped|reduced/i.test(str)) { return -Math.abs(numericVal); } else if (/increased|up|stable|acceptable|over budget/i.test(str)) { return Math.abs(numericVal) + 1000; } return -Math.abs(numericVal); }
+        function sortAndPrepareNotifications() { const sortAndProcess = (rawNotifications) => { if (!rawNotifications || rawNotifications.length === 0) return []; const notificationsWithValues = rawNotifications.map(note => ({ text: note, value: extractNumericValue(note) })); notificationsWithValues.sort((a, b) => b.value - a.value); return notificationsWithValues.map((item, index, arr) => ({ text: item.text, ...getCriticalityInfo(index, arr.length) })); }; processedHeadcountNotifications = sortAndProcess(rawHeadcountNotifications); processedLearningNotifications = sortAndProcess(rawLearningNotifications); }
+ 
+        function updateNotificationBadge() {
+            const totalNotifications = processedHeadcountNotifications.length + processedLearningNotifications.length;
+            const displayCount = totalNotifications > 99 ? '99+' : totalNotifications;
+ 
+            // Target the badge in the NEW navbar
+            const navBadge = document.getElementById('notificationCountBadge');
+             if (navBadge) {
+                 navBadge.textContent = displayCount;
+                 // Show/hide badge based on count
+                 navBadge.style.display = totalNotifications > 0 ? 'flex' : 'none'; // Use flex for alignment
+             }
+             // Update the hidden original badge if needed (optional)
+             const originalBadge = document.getElementById('originalNotificationCountBadge');
+             if (originalBadge) { originalBadge.textContent = displayCount; }
+        }
+ 
+        function updateDropdownPreview() {
+            const headcountPreviewLi = document.getElementById('headcountPreviewLi');
+            const headcountPreviewItem = document.getElementById('headcountPreviewItem');
+            const headcountShowMore = document.getElementById('headcountShowMore');
+            const learningPreviewLi = document.getElementById('learningPreviewLi');
+            const learningPreviewItem = document.getElementById('learningPreviewItem');
+            const learningShowMore = document.getElementById('learningShowMore');
+            const noNotificationsLi = document.getElementById('noNotificationsLi');
+            let hasHeadcount = processedHeadcountNotifications.length > 0;
+            let hasLearning = processedLearningNotifications.length > 0;
+ 
+            // Make sure elements exist before updating
+             if(headcountPreviewLi && headcountPreviewItem && headcountShowMore) {
+                if (hasHeadcount) { const topHeadcount = processedHeadcountNotifications[0]; headcountPreviewItem.innerHTML = `<i class="bi ${topHeadcount.icon}"></i> <span>${topHeadcount.text}</span>`; headcountPreviewItem.className = `alert dropdown-item-custom p-2 m-1 notification-item ${topHeadcount.class}`; headcountShowMore.style.display = processedHeadcountNotifications.length > 1 ? 'block' : 'none'; headcountPreviewLi.style.display = 'block'; } else { headcountPreviewLi.style.display = 'none'; }
+            }
+             if(learningPreviewLi && learningPreviewItem && learningShowMore) {
+                if (hasLearning) { const topLearning = processedLearningNotifications[0]; learningPreviewItem.innerHTML = `<i class="bi ${topLearning.icon}"></i> <span>${topLearning.text}</span>`; learningPreviewItem.className = `alert dropdown-item-custom p-2 m-1 notification-item ${topLearning.class}`; learningShowMore.style.display = processedLearningNotifications.length > 1 ? 'block' : 'none'; learningPreviewLi.style.display = 'block'; } else { learningPreviewLi.style.display = 'none'; }
+            }
+             if(noNotificationsLi) {
+                if (!hasHeadcount && !hasLearning) { noNotificationsLi.style.display = 'block'; } else { noNotificationsLi.style.display = 'none'; }
+            }
+        }
+ 
+        function openJoule(widgetId) {
+            // Hide dropdown if open
+            const dropdownElement = document.getElementById('notificationDropdown');
+            if (dropdownElement) {
+                const dropdownInstance = bootstrap.Dropdown.getInstance(dropdownElement);
+                if (dropdownInstance) {
+                    try { dropdownInstance.hide(); } catch(e) { console.error("Error hiding dropdown:", e)}
+                }
+            }
+             // Hide modal if open
+             if (notificationModal) {
+                 const modalElement = document.getElementById('notificationModal');
+                 if (modalElement && modalElement.classList.contains('show')) {
+                     try { notificationModal.hide(); } catch(e) { console.error("Error hiding modal:", e)}
+                 }
+             }
+ 
+             // Open Joule
+            if (window.sap.das.webclient) {
+                window.sap.das.webclient.resetConversation(); let prompt = ''; if (widgetId === 1) { prompt = "Show me headcount data widget."; } else if (widgetId === 2) { prompt = "Show me learning hours data widget."; } else { prompt = "can you give me new widget notifications?"; } if (prompt) { window.sap.das.webclient.sendMessage(prompt); } window.sap.das.webclient.toggle(); } else { console.error('Joule Web Client not loaded.'); alert('Joule Web Client is not available.'); } }
+ 
+        function showNotificationModal(type) {
+             // Hide dropdown first
+            const dropdownElement = document.getElementById('notificationDropdown');
+             if (dropdownElement) {
+                 const dropdownInstance = bootstrap.Dropdown.getInstance(dropdownElement);
+                 if (dropdownInstance) {
+                    try { dropdownInstance.hide(); } catch(e) { console.error("Error hiding dropdown:", e)}
+                 }
+             }
+            if (!notificationModal) { console.error('Notification modal instance not ready.'); return; } const modalTitle = document.getElementById('notificationModalLabel'); const modalBody = document.getElementById('modalNotificationContent'); const modalJouleBtn = document.getElementById('modalAskJouleBtn'); let notificationsToShow = []; let jouleWidgetId = 0; modalBody.innerHTML = ''; if (type === 'headcount') { modalTitle.textContent = 'All Headcount Notifications'; notificationsToShow = processedHeadcountNotifications; jouleWidgetId = 1; } else if (type === 'learning') { modalTitle.textContent = 'All Learning Hours Notifications'; notificationsToShow = processedLearningNotifications; jouleWidgetId = 2; } else { console.error('Unknown notification type:', type); return; } modalJouleBtn.setAttribute('onclick', `openJoule(${jouleWidgetId})`); if (notificationsToShow.length > 0) { const highPriority = notificationsToShow.filter(n => n.class === 'criticality-high'); const mediumPriority = notificationsToShow.filter(n => n.class === 'criticality-medium'); const lowPriority = notificationsToShow.filter(n => n.class === 'criticality-low'); const createSection = (title, iconClass, headerClass, items) => { if (items.length > 0) { const header = document.createElement('div'); header.className = `criticality-header ${headerClass}`; header.innerHTML = `<i class="bi ${iconClass}"></i> ${title}`; modalBody.appendChild(header); items.forEach(item => { const div = document.createElement('div'); div.className = `alert p-2 m-1 ${item.class} notification-item`; div.innerHTML = `<i class="bi ${item.icon}"></i> <span>${item.text}</span>`; div.style.cursor = 'pointer'; div.onclick = () => openJoule(jouleWidgetId); modalBody.appendChild(div); }); } }; createSection('URGENT - Immediate Action Required', 'bi-exclamation-triangle-fill', 'criticality-header-high', highPriority); createSection('IMPORTANT - Action Required Soon', 'bi-exclamation-circle-fill', 'criticality-header-medium', mediumPriority); createSection('NORMAL - For Information', 'bi-info-circle-fill', 'criticality-header-low', lowPriority); } else { modalBody.innerHTML = '<p class="text-muted">No notifications for this category.</p>'; } notificationModal.show(); }
+        // --- End Javascript Functions ---
+
+       
+    </script>
+    
 
 </body>
 </html>

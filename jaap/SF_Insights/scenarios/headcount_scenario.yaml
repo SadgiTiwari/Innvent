@@ -1,4 +1,4 @@
-description: This scenario helps user to get headcount data widget
+description: This scenario give headcount data widget
  
 target:
   type: function

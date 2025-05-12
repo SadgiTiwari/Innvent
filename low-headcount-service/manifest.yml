@@ -1,5 +1,5 @@
 applications:
-  - name: low-headcount-service
+  - name: UI
     memory: 1024M
     buildpacks:
       - java_buildpack

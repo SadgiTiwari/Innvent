@@ -1,6 +1,24 @@
 action_groups:
   - actions:
+      - type: api-request
+        method: POST
+        system_alias: AuthAgent
+        path: /Agents(2c10c329-0c21-4a6a-99f2-47a9f182a4fb)/chats(aa06d4ed-6581-4be1-b370-9731c77c0e41)/UnifiedAiAgentService.sendMessage
+        headers:
+           content-type: application/json
+        timeout: 45 
+        body: {"msg" : "Give mitigation steps for learning hours data fast in standard uniform format always, random 3 for each priority" }
+        result_variable: result
+     
       - type: message
         message:
-            type: text
-            content: "Displaying the mitigation steps for Learning Hours Widget...."
+          type: card
+          content:
+            title: Mitigation Steps
+            subtitle: How to resolve low learning hours?
+            imageUrl: 'sap-icon://ai'
+            imageStyle: avatar
+            description:
+              value: <? result.body.response?> 
+              markdown: true
+            

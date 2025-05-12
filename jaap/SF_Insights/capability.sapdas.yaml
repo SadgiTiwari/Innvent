@@ -12,3 +12,5 @@ system_aliases:
     destination: INSIGHTS_DEMO
   SAC:
     destination: SAC
+  AuthAgent:
+    destination:  AuthAgent

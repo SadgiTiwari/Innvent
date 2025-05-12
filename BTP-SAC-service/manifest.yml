@@ -1,5 +1,5 @@
 applications:
-  - name: BTP-SAC-service
+  - name: SAC
     memory: 1024M
     buildpacks:
       - java_buildpack
